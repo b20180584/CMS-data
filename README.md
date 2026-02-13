@@ -1,5 +1,8 @@
 # CMS-data
 All calculations were performed on the Beijing Materials Genome High-Performance Computing (HPC) cluster using Intel Xeon Gold 6248 CPUs. The shell script used for the tensile (stress–strain) calculations is provided below:
+
+
+
 #!/bin/sh
 #JSUB -J VASP       
 #JSUB -n 40                      
@@ -78,7 +81,7 @@ unify(){
     sed -i "5c${newaxis[5]}" POSCAR
 }
 
-# check whether new starting or restarting, added by xuefei Liu
+# check whether new starting or restarting
 if [ -f "./POSCAR.orig" ];then
     echo "Restarting !!"
     recal=true
