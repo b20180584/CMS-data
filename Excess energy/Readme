@@ -1,0 +1,2 @@
+When shifting the atoms at the grain-boundary plane, the lattice size should be changed by twice the atomic displacement, because the grain boundary migration requires moving atoms on both sides of the boundary. In other words, if the atomic positions are shifted by 0.1, the lattice should be expanded by 0.2.
+Another important note: when moving atoms on both sides, only the first atomic layer adjacent to the twin boundary needs to be displaced. For the energy calculation, set ISIF = 2.

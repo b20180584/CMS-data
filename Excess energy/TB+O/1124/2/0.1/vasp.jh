@@ -1,0 +1,23 @@
+#!/bin/sh
+#JSUB -J VASP       
+#JSUB -n 20                      
+#JSUB -q normal                
+#JSUB -o out.%J                  
+#JSUB -e err.%J                  
+
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+source /opt/intel/compilers_and_libraries/linux/mkl/bin/mklvars.sh intel64
+source /opt/intel/compilers_and_libraries/linux/mpi/intel64/bin/mpivars.sh
+
+module load vasp/vasp6.1.1
+
+ulimit -s 5120000
+
+source /beegfs/jhinno/unischeduler/conf/unisched
+########################################################
+#   $JH_NCPU:         Number of CPU cores              #
+#   $JH_HOSTFILE:     List of computer hostfiles       #
+########################################################
+
+mpirun -np $JH_NCPU -machinefile $JH_HOSTFILE vasp_ncl  >> vasp.log
+
